@@ -2,6 +2,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -66,6 +67,12 @@ public class PetTest {
 
     }
 
+   /* @Before
+    public void beforeTest(){
+
+    }
+    */
+
     @Test
     public void test2GetPetById() {
         System.out.println(petId);
@@ -90,6 +97,16 @@ public class PetTest {
                 .statusCode(anyOf(is(200), is(201)))
                 .log().all()
         ;
+
+        given()
+                .get(PetEndpoint.GET_PET, petId)
+                .then()
+                .statusCode(is(404))
+                .log().all()
+        ;
+
+
+
     }
 
 
