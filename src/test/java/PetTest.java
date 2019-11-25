@@ -11,7 +11,7 @@ import static org.hamcrest.core.AnyOf.anyOf;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PetTest {
     static long petId;
 
@@ -25,7 +25,7 @@ public class PetTest {
 
     }
 
-    @Test
+    @Before
     public void test1CreatePet() {
 
         String body = "{\n" +
@@ -67,11 +67,6 @@ public class PetTest {
 
     }
 
-   /* @Before
-    public void beforeTest(){
-
-    }
-    */
 
     @Test
     public void test2GetPetById() {
