@@ -1,26 +1,25 @@
 package data;
 
-
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@Data
+@Builder
 public class Pet {
-    private long id;
-    private Category category;
-    private String name;
-    private List<String> photoUrls;
-    private List<Tag> tags;
-    private String status;
+    @Builder.Default
+    private long id = 0;
+    @Builder.Default
+    private Category category = Category.builder().build();
+    @Builder.Default
+    private String name = "kitty";
+    @Builder.Default
+    private List<String> photoUrls = new ArrayList<>();
+    @Builder.Default
+    private List<Tag> tags = new ArrayList<>();
+    @Builder.Default
+    private Status status = Status.pending;
 
-    public Pet(long id, String categoryName, String name, String status) {
-        this.id = id;
-        this.category = new Category(0, categoryName);
-        this.name = name;
-        this.status = status;
-        this.tags = new ArrayList<>();
-        this.photoUrls = new ArrayList<>();
-    }
 }
