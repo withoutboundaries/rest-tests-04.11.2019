@@ -96,7 +96,7 @@ public class PetTest {
     @Test
     public void uploadPetImage() {
         petEndpoint
-                .uploadPetImage(petId, "kitty_cat.png")
+                .uploadPetImage(petId, "/drugBober.jpg")
                 .statusCode(200)
                 .body("message", containsString("uploaded to"));
     }
